@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Autoplay with Sound</title>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #eee;
+      font-family: Arial, sans-serif;
+    }
+    video {
+      display: block;
+    }
+    .caption {
+      margin-top: 10px;
+      font-size: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Video -->
+  <video id="vid" autoplay loop playsinline width="200" height="450">
+    <source src="tite.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+  <!-- Caption -->
+  <div class="caption">Cat Laughing At You 😹</div>
+
+  <script>
+    // Force video to play with sound
+    const v = document.getElementById('vid');
+    v.muted = false;
+    v.volume = 1.0;
+    v.play().catch(() => {
+      console.log("Browser blocked autoplay with sound 😒");
+    });
+  </script>
+
+</body>
+</html>
